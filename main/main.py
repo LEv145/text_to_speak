@@ -32,7 +32,7 @@ class Text_to_speak():
 
     def streams(self):
         """Получаем потоки"""
-        tts = speaker(self.text', lang=self.lang')
+        tts = speaker(self.text, lang=self.lang)
         urls = tts.get_urls()
         return urls
     
