@@ -18,27 +18,27 @@ class Text_to_speak():
     
     def to_mp3(self, _file = 'speak.mp3'):
         """Преводим текст в *.mp3"""
-        tts = speaker(f'{self.text}', lang=f'{self.lang}')
-        tts.save(f'{_file}')
+        tts = speaker(self.text, lang=self.lang)
+        tts.save(_file)
         print(f"Создался файл {_file}") 
 
     
     def to_play(self):
         """Проигрываем наш текст"""
         mp3_fp = BytesIO()
-        tts = speaker(f'{self.text}', lang=f'{self.lang}')
+        tts = speaker(self.text, lang=self.lang)
         tts.write_to_fp(mp3_fp)
 
 
     def streams(self):
         """Получаем потоки"""
-        tts = speaker(f'{self.text}', lang=f'{self.lang}')
+        tts = speaker(self.text', lang=self.lang')
         urls = tts.get_urls()
         return urls
     
     def stream(self):
         """Получаем поток"""
-        tts = speaker(f'{self.text}', lang=f'{self.lang}')
+        tts = speaker(self.text, lang=self.lang)
         urls = tts.get_urls()
         url = urls[0]
         return url
@@ -46,8 +46,8 @@ class Text_to_speak():
     
     def mp3_to_text(self, _file):
         """Считываем файл и получаем текст"""
-        tts = speaker(f'{self.text}', lang=f'{self.lang}')
-        with open(f'{_file}', 'wb') as f:
+        tts = speaker(self.text, lang=self.lang)
+        with open(_file, 'wb') as f:
             tts.write_to_fp(f)
 
 
